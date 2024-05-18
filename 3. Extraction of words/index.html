@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Extraction with Highlighting</title>
+<style>
+.highlight {
+    background-color: yellow;
+}
+</style>
+</head>
+<body>
+    <center><h1>Extraction of words</h1></center>
+<p id="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus <diam class="lorem">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam quod omnis culpa consequatur commodi voluptatem vitae nobis quas perferendis similique aut sit ducimus quaerat dolores dolor, a id molestiae <maiores class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam iure repellendus illo numquam, facere eligendi sit quod eos laboriosam magni, suscipit sint debitis rerum inventore nesciunt corporis adipisci ipsa placeat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed porro doloribus nihil unde quis quas iure aut nesciunt debitis praesentium dicta molestias enim autem culpa sit minima cumque, hic ipsum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugiat commodi pariatur dolorem maiores, odio tempore. Quia voluptates, saepe nesciunt autem dolorum esse sapiente cum perferendis blanditiis repudiandae ipsam aliquam?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, nostrum. Animi repellat, quisquam ullam, perspiciatis non molestias atque quo recusandae assumenda deleniti enim nisi consectetur suscipit minus numquam iusto. Sit!</maiores></diam> Sed <nisi class="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, vel voluptas incidunt ipsa quam dolore debitis odit unde dolorem provident minima aliquam architecto beatae enim repudiandae aspernatur voluptatibus, veritatis <illum class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dicta vero voluptatem eum officiis ipsa libero velit cum. Nam, tenetur nesciunt eum reiciendis ullam labore cupiditate quidem nisi expedita laborum!</illum></nisi>
+</p>
+
+<script>
+function highlightLongWords() {
+    var paragraph = document.getElementById('paragraph');
+    var text = paragraph.textContent.trim();
+    var words = text.split(/\s+/); // Split text into words by whitespace
+
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].length > 8) {
+            words[i] = '<span class="highlight">' + words[i] + '</span>'; // Highlight long words
+        }
+    }
+
+    paragraph.innerHTML = words.join(' '); // Join the words back into a string with highlighted long words
+}
+
+highlightLongWords();
+</script>
+</body>
+</html>
